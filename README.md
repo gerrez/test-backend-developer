@@ -39,5 +39,8 @@ customer).
 the active state must return to "Udfyld dit dokument", but all the stages the document have already been at must have a 
 green dot. (watch the demo).
 
+### Hand in
+When done, you must turn in the task by forking this repository and creating a Pull Request with your changes.
+
 ## Have fun :-)
  
