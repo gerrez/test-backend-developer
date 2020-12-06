@@ -22,10 +22,12 @@ these stages. Watch the `demo.mov` video to have a look at this interface.
 ## Task
 Your task is to implement the overview demonstrated in `demo.mov`. 
 You must implement the `getProgress()` function in `Document.php`, to make this overview work and behave as in the video.
+
 __Note: No frontend development is required. If you implement the `getProgress()` function as specified in its comment, 
-everything will work out of the box.__ 
+everything will work out of the box.__  
+
 __Note: Beside the `getProgress()`, it should not be necessary to alter any existing methods. If you find a need to 
-change an exising method, you are most likely on a wrong path.__
+change an exising method, you are most likely on a wrong path.__  
 
 ### Requirements
 - Before starting the document, all stages must be listed (Udfyld, Køb, Juridisk hjælp, Tinglysning, Underskrift, Notar, 
