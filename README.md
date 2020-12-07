@@ -34,12 +34,12 @@ change an exising method, you are most likely on a wrong path.
 Gyldigt)
 - Whenever a new state is set (through the call to action buttons), the new state must be the active one (green 
 background) and all the previous ones must have a green dot.
-- When choosing __Purchase DIY__ the "Evt. juridisk hjælp" step must be excluded from the overview (watch the demo - 
-when purchasing Do It Yourself, no meeting is require, and therefore this stage is removed to avoid confusing the 
+- When choosing __Purchase DIY__ the "Evt. juridisk hjælp" step must be excluded from the overview (
+when purchasing "Do It Yourself", no meeting is required, and therefore this stage is removed to avoid confusing the 
 customer).
 - When editing the document (through the `Edit document` call to action button) at a state after "Udfyld dit dokument", 
 the active state must return to "Udfyld dit dokument", but all the stages the document have already been at must have a 
-green dot. (watch the demo).
+green dot.
 
 ### Hand in
 When done, you must turn in the task by forking this repository and creating a Pull Request with your changes.

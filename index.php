@@ -12,6 +12,8 @@
     }
 
     $document = new Document();
+
+    $stages = array_values($document->getProgress());
 ?>
 <div class="bg-gray-f6 md:h-full">
     <div class="container mx-auto mydashboard--content relative">
@@ -33,13 +35,13 @@
                     </svg></span>
                 <div class="process-accordion flex flex-col xs:overflow-y-auto">
                     <div>
-                        <?php foreach ($document->getProgress() as $index => $stage) { ?>
+                        <?php foreach ($stages as $index => $stage) { ?>
                             <div class="proces-item w-full relative step1 <?php if ($stage['reached']) { ?>visited<?php } ?> <?php if (!isset($stages[$index + 1]) || !$stages[$index + 1]['reached']) { ?>last<?php } ?>">
                                 <div class="proces-circle h-4 w-4 rounded-full absolute left-0 top-0 mt-5"></div>
                                 <div class="border-l border-gray-300 pl-4 ml-2">
                                     <div class="py-2 md:px-2">
                                         <div class="shadow-xs w-full bg-gray-f6 text-gray-69 rounded-sm">
-                                            <div class="proces-item--box cursor-pointer p-2 xs:text-sm text-base rounded-sm md:px-4 <?php if ($stage['active']) { ?>bg-dark-teal text-white<?php } else { ?>bg-gray-f6 text-gray-69<?php } ?>">
+                                            <div class="proces-item--box cursor-pointer p-2 xs:text-sm text-base rounded-sm md:px-4 <?php if (!empty($stage['active'])) { ?>bg-dark-teal text-white<?php } else { ?>bg-gray-f6 text-gray-69<?php } ?>">
                                                 <?php echo DocumentStage::getTitle($stage['stage']); ?>
                                             </div>
                                         </div>
