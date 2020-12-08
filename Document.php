@@ -126,14 +126,15 @@ class Document
      */
     public function getProgress()
     {
-        // @TODO: This should be replaced by your code.
-        return array_map(function ($stage) {
+        $states = $this->getStates();
+
+        return array_map(function ($stage) use($states) {
             if (is_array($stage)) {
                 $stage = array_shift($stage);
             }
             return [
                 'stage' => $stage,
-                'reached' => false,
+                'reached' => DocumentStage::isStageReached($stage, $states),
                 'active' => false,
             ];
         }, $this->getStages());
