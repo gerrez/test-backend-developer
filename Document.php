@@ -135,7 +135,7 @@ class Document
             return [
                 'stage' => $stage,
                 'reached' => DocumentStage::isStageReached($stage, $states),
-                'active' => false,
+                'active' => DocumentStage::isStageActive($stage, $this->getCurrentStatus())
             ];
         }, $this->getStages());
     }

@@ -74,4 +74,35 @@ class DocumentStage
 
         return false;
     }
+
+
+    /**
+     * @param string $stage
+     * @param boolean|string $state
+     * @return bool
+     */
+    public static function isStageActive($stage, $state)
+    {
+        switch ($stage) {
+            case self::FILL_OUT:
+                return DocumentState::DRAFT === $state;
+            case self::AWAITING_PAYMENT:
+                return DocumentState::WAITING_FOR_PAYMENT === $state;
+            case self::AWAITING_REVIEW:
+            case self::AWAITING_ADVICE_WITHOUT_BOOKING:
+            case self::AWAITING_REVIEW_WITHOUT_BOOKING:
+            case self::AWAITING_ADVICE:
+                return DocumentState::WAITING_FOR_MEETING === $state;
+            case self::CHOOSE_REGISTRATION_TYPE:
+                return DocumentState::WAITING_FOR_REGISTRATION === $state;
+            case self::AWAITING_SIGNATURE:
+                return DocumentState::WAITING_FOR_SIGNATURE === $state;
+            case self::VISIT_NOTARY:
+                return DocumentState::WAITING_FOR_CONFIRMATION === $state;
+            case self::FINISHED:
+                return DocumentState::SIGNED === $state;
+        }
+
+        return false;
+    }
 }
