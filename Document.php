@@ -128,16 +128,21 @@ class Document
     {
         $states = $this->getStates();
 
-        return array_map(function ($stage) use($states) {
+        $map = array_map(function ($stage) use($states) {
             if (is_array($stage)) {
                 $stage = array_shift($stage);
             }
+
             return [
                 'stage' => $stage,
                 'reached' => DocumentStage::isStageReached($stage, $states),
                 'active' => DocumentStage::isStageActive($stage, $this->getCurrentStatus())
             ];
         }, $this->getStages());
+
+        return array_filter($map, function ($stage) {
+            return empty($stage['stage'] === DocumentStage::AWAITING_REVIEW && $this->getPurchaseType() === PurchaseType::DIGITAL_DOCUMENT_BASIS);
+        });
     }
 
     /**
